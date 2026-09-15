@@ -1,9 +1,32 @@
 export const runtime = "edge";
 
 import { NextRequest, NextResponse } from "next/server";
-import { verifyPassword, getExpectedSessionToken, SESSION_COOKIE } from "@/lib/auth";
+import {
+  verifyPassword,
+  getExpectedSessionToken,
+  SESSION_COOKIE,
+  checkLoginRateLimit,
+  recordFailedLogin,
+  clearLoginAttempts,
+} from "@/lib/auth";
+
+function getClientIp(request: NextRequest): string {
+  return request.headers.get("cf-connecting-ip")
+    ?? request.headers.get("x-forwarded-for")?.split(",")[0].trim()
+    ?? "unknown";
+}
 
 export async function POST(request: NextRequest) {
+  const ip = getClientIp(request);
+
+  const rateLimit = await checkLoginRateLimit(ip);
+  if (!rateLimit.allowed) {
+    return NextResponse.json(
+      { error: "Too many attempts. Try again later." },
+      { status: 429, headers: { "Retry-After": String(rateLimit.retryAfterSeconds) } }
+    );
+  }
+
   let body: { password?: string };
   try {
     body = (await request.json()) as { password?: string };
@@ -17,8 +40,11 @@ export async function POST(request: NextRequest) {
 
   const valid = await verifyPassword(body.password);
   if (!valid) {
+    await recordFailedLogin(ip);
     return NextResponse.json({ error: "Incorrect password" }, { status: 401 });
   }
+
+  await clearLoginAttempts(ip);
 
   const token = await getExpectedSessionToken();
   if (!token) {

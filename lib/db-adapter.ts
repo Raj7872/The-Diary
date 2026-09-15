@@ -141,6 +141,17 @@ export async function getDb(): Promise<DbAdapter | null> {
         `);
       }
 
+      try { await client.execute("SELECT 1 FROM login_attempts LIMIT 1"); }
+      catch {
+        await client.executeMultiple(`
+          CREATE TABLE IF NOT EXISTS login_attempts (
+            ip TEXT NOT NULL,
+            attempted_at INTEGER NOT NULL
+          );
+          CREATE INDEX IF NOT EXISTS idx_login_attempts_ip ON login_attempts(ip, attempted_at);
+        `);
+      }
+
       type Args = Parameters<typeof client.execute>[0] extends { args: infer A } ? A : never;
       return {
         async query<T extends DbRow>(sql: string, params: unknown[] = []) {

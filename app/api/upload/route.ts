@@ -29,6 +29,19 @@ if (existingUrl && entryId) {
 
   if (!file) return NextResponse.json({ error: "No file provided" }, { status: 400 });
 
+  const allowedTypes: Record<string, string> = {
+    "image/jpeg": "jpg",
+    "image/png":  "png",
+    "image/webp": "webp",
+  };
+  const ext = allowedTypes[file.type];
+  if (!ext) {
+    return NextResponse.json({ error: "Only JPG, PNG, WEBP allowed" }, { status: 400 });
+  }
+  if (file.size > 10 * 1024 * 1024) {
+    return NextResponse.json({ error: "File too large (max 10 MB)" }, { status: 400 });
+  }
+
   let url: string;
 
   try {
@@ -39,7 +52,6 @@ if (existingUrl && entryId) {
     } | undefined;
 
     if (bucket) {
-      const ext = file.name.split(".").pop() ?? "jpg";
       const key = `photos/${entryId ?? "misc"}/${Date.now()}.${ext}`;
       await bucket.put(key, await file.arrayBuffer(), { httpMetadata: { contentType: file.type } });
       url = `https://pub-29a3cf472efd4751affcf08e955f23bf.r2.dev/${key}`;
