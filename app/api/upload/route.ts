@@ -33,13 +33,14 @@ if (existingUrl && entryId) {
     "image/jpeg": "jpg",
     "image/png":  "png",
     "image/webp": "webp",
+    "image/gif":  "gif",
   };
   const ext = allowedTypes[file.type];
   if (!ext) {
-    return NextResponse.json({ error: "Only JPG, PNG, WEBP allowed" }, { status: 400 });
+    return NextResponse.json({ error: "Only JPG, PNG, WEBP, GIF allowed" }, { status: 400 });
   }
-  if (file.size > 10 * 1024 * 1024) {
-    return NextResponse.json({ error: "File too large (max 10 MB)" }, { status: 400 });
+  if (file.size > 25 * 1024 * 1024) {
+    return NextResponse.json({ error: "File too large (max 25 MB)" }, { status: 400 });
   }
 
   let url: string;

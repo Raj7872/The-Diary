@@ -8,15 +8,18 @@ export async function POST(request: NextRequest) {
   if (!file) return NextResponse.json({ error: "No file provided" }, { status: 400 });
 
   // Validate type and size
-  const allowed = ["image/jpeg", "image/png", "image/webp"];
+  const allowed = ["image/jpeg", "image/png", "image/webp", "image/gif"];
   if (!allowed.includes(file.type)) {
-    return NextResponse.json({ error: "Only JPG, PNG, WEBP allowed" }, { status: 400 });
+    return NextResponse.json({ error: "Only JPG, PNG, WEBP, GIF allowed" }, { status: 400 });
   }
-  if (file.size > 10 * 1024 * 1024) {
-    return NextResponse.json({ error: "File too large (max 10 MB)" }, { status: 400 });
+  if (file.size > 25 * 1024 * 1024) {
+    return NextResponse.json({ error: "File too large (max 25 MB)" }, { status: 400 });
   }
 
-  const ext = file.type === "image/webp" ? "webp" : file.type === "image/png" ? "png" : "jpg";
+  const ext = file.type === "image/webp" ? "webp"
+    : file.type === "image/png" ? "png"
+    : file.type === "image/gif" ? "gif"
+    : "jpg";
   // UUID-based filename to avoid collisions
   const uuid    = crypto.randomUUID();
   const r2Key   = `album/${uuid}.${ext}`;

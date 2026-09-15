@@ -37,12 +37,12 @@ export function AddMemoryModal({ onClose, onSaved }: Props) {
   }
 
   function handleFiles(files: FileList) {
-    const allowed = ["image/jpeg", "image/png", "image/webp"];
+    const allowed = ["image/jpeg", "image/png", "image/webp", "image/gif"];
     const valid   = Array.from(files).filter(f =>
-      allowed.includes(f.type) && f.size <= 10 * 1024 * 1024
+      allowed.includes(f.type) && f.size <= 25 * 1024 * 1024
     );
     if (valid.length !== files.length) {
-      setError("Some files were skipped. Only JPG, PNG, WEBP under 10 MB allowed.");
+      setError("Some files were skipped. Only JPG, PNG, WEBP, GIF under 25 MB allowed.");
     }
     setPreviews(valid.map(file => ({ file, localUrl: URL.createObjectURL(file) })));
   }
@@ -141,11 +141,11 @@ export function AddMemoryModal({ onClose, onSaved }: Props) {
             >
               <ImagePlus size={32} className="mx-auto text-[#c99f7f] mb-3" />
               <p className="text-sm font-medium text-[#7a5c47]">Drop photos here or tap to choose</p>
-              <p className="text-xs text-[#b8a090] mt-1">JPG, PNG, WEBP · max 10 MB each</p>
+              <p className="text-xs text-[#b8a090] mt-1">JPG, PNG, WEBP, GIF · max 25 MB each</p>
               <input
                 ref={inputRef}
                 type="file"
-                accept="image/jpeg,image/png,image/webp"
+                accept="image/jpeg,image/png,image/webp,image/gif"
                 multiple
                 className="hidden"
                 onChange={e => e.target.files && handleFiles(e.target.files)}
@@ -178,7 +178,7 @@ export function AddMemoryModal({ onClose, onSaved }: Props) {
               <input
                 ref={inputRef}
                 type="file"
-                accept="image/jpeg,image/png,image/webp"
+                accept="image/jpeg,image/png,image/webp,image/gif"
                 multiple
                 className="hidden"
                 onChange={e => e.target.files && handleFiles(e.target.files)}
