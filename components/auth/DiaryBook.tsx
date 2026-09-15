@@ -136,7 +136,7 @@ export function DiaryBook({ onAuthenticated }: DiaryBookProps) {
           </p>
 
           <h1 className="gold-foil font-display text-3xl sm:text-4xl font-bold tracking-wide">
-            Movie Diary
+            The Diary
           </h1>
 
           <p className="handwriting text-rose-400 text-lg sm:text-xl mt-2">

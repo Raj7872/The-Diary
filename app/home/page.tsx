@@ -82,7 +82,7 @@ export default function HomePage() {
             transition={{ delay: 0.4 }}
             className="font-display text-4xl md:text-5xl font-bold text-[#3d2b1f] leading-tight"
           >
-            Movie Diary
+            The Diary
           </motion.h1>
 
           <motion.p
@@ -155,7 +155,7 @@ export default function HomePage() {
                   href="/album"
                   className="flex items-center justify-center gap-2 w-full py-3.5 bg-[#fdf5e8] hover:bg-[#f5e6cc] text-[#3d2b1f] rounded-xl font-semibold text-base transition-all border border-[#e8dcc8] hover:border-[#d4a843] hover:shadow-md group">
                 <span className="group-hover:scale-110 transition-transform text-xl">📸</span>
-                    Our Album
+                    The Album
               </Link>
 
 

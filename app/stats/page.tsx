@@ -90,7 +90,7 @@ const ratingsDist = Array.from({ length: 10 }, (_, i) => i + 1).map(s => ({
   return (
     <div className="max-w-2xl mx-auto px-4 py-8 space-y-8">
       <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-        <h1 className="font-display text-3xl font-bold text-[#3d2b1f]">Our Stats</h1>
+        <h1 className="font-display text-3xl font-bold text-[#3d2b1f]">The Stats</h1>
         <p className="handwriting text-rose-400 text-lg mt-1">by the numbers 📊</p>
       </motion.div>
 

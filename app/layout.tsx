@@ -5,13 +5,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { ServiceWorkerRegister } from "@/components/ServiceWorkerRegister";
 
 export const metadata: Metadata = {
-  title: "Movie Diary 🎬💕",
+  title: "The Diary 🎬💕",
   description: "Every movie. Every memory. Every date.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Movie Dates",
+    title: "The Diary",
   },
   icons: { icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>" },
 };

@@ -27,7 +27,7 @@ export function Navbar() {
       <nav className="hidden md:flex items-center justify-between px-8 py-4 bg-[#fffdf7] border-b border-[#e8dcc8] sticky top-0 z-50 shadow-sm">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-2xl">🎬</span>
-          <span className="font-display text-xl font-semibold text-[#3d2b1f]">Movie Diary</span>
+          <span className="font-display text-xl font-semibold text-[#3d2b1f]">The Diary</span>
           <span className="handwriting text-rose-400 text-lg ml-1">💕</span>
         </Link>
         <div className="flex items-center gap-1">

@@ -149,7 +149,7 @@ export default function AlbumPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-8"
         >
-          <h1 className="font-display text-4xl font-bold text-[#3d2b1f]">Our Album</h1>
+          <h1 className="font-display text-4xl font-bold text-[#3d2b1f]">The Album</h1>
           <p className="handwriting text-rose-400 text-xl mt-1">
             A collection of little moments we never want to forget.
           </p>

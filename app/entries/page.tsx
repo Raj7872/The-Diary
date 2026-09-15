@@ -25,7 +25,7 @@ export default function EntriesPage() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
       <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8">
-        <h1 className="font-display text-3xl font-bold text-[#3d2b1f]">Our Movie Diary</h1>
+        <h1 className="font-display text-3xl font-bold text-[#3d2b1f]">The Diary</h1>
         <p className="handwriting text-rose-400 text-lg mt-1">every film, every night together 🎞️</p>
         {data && <p className="text-sm text-[#9e7a60] mt-2">{data.total} {data.total === 1 ? "entry" : "entries"}</p>}
       </motion.div>

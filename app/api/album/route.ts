@@ -86,7 +86,7 @@ export async function POST(request: NextRequest) {
 
   await sendPush(d.added_by, {
     title: "New memory added 📸",
-    body:  d.caption ? d.caption : "A new photo was added to Our Album.",
+    body:  d.caption ? d.caption : "A new photo was added to The Album.",
     url:   "/album",
   }).catch(() => {});
 

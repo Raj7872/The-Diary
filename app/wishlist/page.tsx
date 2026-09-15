@@ -115,7 +115,7 @@ export default function WishlistPage() {
 
       <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8">
         <div className="text-5xl mb-2">🌙</div>
-        <h1 className="font-display text-3xl font-bold text-[#3d2b1f]">Our Wishlist</h1>
+        <h1 className="font-display text-3xl font-bold text-[#3d2b1f]">The Wishlist</h1>
         <p className="handwriting text-violet-400 text-lg mt-1">movies we wanna watch together 💫</p>
       </motion.div>
 

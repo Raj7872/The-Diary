@@ -1,7 +1,7 @@
 {
     "id": "/",
-  "name": "Movie Diary",
-  "short_name": "Movie Diary",
+  "name": "The Diary",
+  "short_name": "The Diary",
   "description": "Our story, one movie at a time.",
   "start_url": "/",
   "display": "standalone",
