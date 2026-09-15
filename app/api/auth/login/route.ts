@@ -1,14 +1,8 @@
 export const runtime = "edge";
 
 import { NextRequest, NextResponse } from "next/server";
-import {
-  verifyPassword,
-  getExpectedSessionToken,
-  SESSION_COOKIE,
-  checkLoginRateLimit,
-  recordFailedLogin,
-  clearLoginAttempts,
-} from "@/lib/auth";
+import { verifyPassword, getExpectedSessionToken, SESSION_COOKIE } from "@/lib/auth";
+import { checkLoginRateLimit, recordFailedLogin, clearLoginAttempts } from "@/lib/login-rate-limit";
 
 function getClientIp(request: NextRequest): string {
   return request.headers.get("cf-connecting-ip")
