@@ -35,7 +35,7 @@ coverage/
 *.tsbuildinfo 
 
 # Misc 
-.vercel/ 
-.wrangler/state/
+.vercel/
+.wrangler/
 .local-db
 
