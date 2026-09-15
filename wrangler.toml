@@ -6,7 +6,7 @@ pages_build_output_dir = ".vercel/output/static"
 [[d1_databases]]
 binding = "DB"
 database_name = "movie-diary-db"
-database_id = "68a7ec13-8d1d-4322-8b4e-79fb2543d64d"
+database_id = "b1157762-e450-4dab-ab34-1d7ad9d1e740"
 migrations_dir = "database/migrations"
 
 [[r2_buckets]]

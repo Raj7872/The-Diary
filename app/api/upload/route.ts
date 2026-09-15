@@ -42,7 +42,7 @@ if (existingUrl && entryId) {
       const ext = file.name.split(".").pop() ?? "jpg";
       const key = `photos/${entryId ?? "misc"}/${Date.now()}.${ext}`;
       await bucket.put(key, await file.arrayBuffer(), { httpMetadata: { contentType: file.type } });
-      url = `https://pub-e1c9171c4bd943de82761aca95e4fedf.r2.dev/${key}`;
+      url = `https://pub-29a3cf472efd4751affcf08e955f23bf.r2.dev/${key}`;
     } else {
       url = `https://picsum.photos/seed/${Date.now()}/400/600`;
     }

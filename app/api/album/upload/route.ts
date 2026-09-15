@@ -33,8 +33,7 @@ export async function POST(request: NextRequest) {
       await bucket.put(r2Key, await file.arrayBuffer(), {
         httpMetadata: { contentType: file.type },
       });
-      // ⚠️  Replace with your actual R2 public URL
-      imageUrl = `https://pub-e1c9171c4bd943de82761aca95e4fedf.r2.dev/${r2Key}`;
+      imageUrl = `https://pub-29a3cf472efd4751affcf08e955f23bf.r2.dev/${r2Key}`;
     } else {
       // Local dev placeholder
       imageUrl = `https://picsum.photos/seed/${uuid}/600/800`;
